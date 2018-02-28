@@ -18,11 +18,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    ArrayList<Flat> flatArrayList;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
 
@@ -37,7 +37,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("Flats");
-        flatArrayList = new ArrayList<>();
     }
 
 
@@ -105,23 +104,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-        mMap.setOnMarkerDragListener(new GoogleMap.OnMarkerDragListener() {
-            @Override
-            public void onMarkerDragStart(Marker marker) {
-                marker.remove();
-            }
-
-            @Override
-            public void onMarkerDrag(Marker marker) {
-
-            }
-
-            @Override
-            public void onMarkerDragEnd(Marker marker) {
 
             }
         });
